@@ -1,13 +1,125 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fb; 
+  color: #333333; 
+  line-height: 1.6;
 }
+
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-title {
+  font-size: 28px;
+  color: #333333; 
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.search-input {
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #333333;
+  display: block;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #5c6bc0; 
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #9e9e9e; 
+}
+
+
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
+}
+
+.movie-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.movie-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc; 
+  border-radius: 10px;
+  color: #fff;
+}
+
+.movie-details {
+  padding: 10px 0;
+}
+
+.movie-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333333; 
+}
+
+.movie-overview {
+  color: #757575; 
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.movie-details p {
+  color: #9e9e9e; 
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.movie-details strong {
+  font-weight: bold;
+}
+
+

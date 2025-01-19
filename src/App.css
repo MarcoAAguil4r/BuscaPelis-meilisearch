@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+/* SearchBar.module.css */
+
+/* Contenedor principal */
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fb; /* Fondo principal */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-title {
+  font-size: 28px;
+  color: #333333; /* Título principal */
+  margin-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-input {
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Borde suave */
+  background-color: #ffffff; /* Fondo del input */
+  color: #333333;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-input::placeholder {
+  color: #9e9e9e; /* Placeholder más suave */
+}
+
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  background-color: #ffffff; /* Fondo blanco para la tarjeta */
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Efecto al pasar el cursor */
+}
+
+.movie-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.movie-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-placeholder {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #ccc; /* Color gris para la imagen placeholder */
+  border-radius: 10px;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.movie-details {
+  padding: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movie-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333333; /* Título de la película */
+}
+
+.movie-overview {
+  color: #757575; /* Texto de la descripción de la película */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.movie-details p {
+  color: #9e9e9e; /* Texto secundario */
+  font-size: 14px;
+  margin: 5px 0;
 }
