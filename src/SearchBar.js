@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import client from './meilisearchClient';
-import './index.css'; // Importa el archivo CSS
+import './index.css'; 
+import { MeiliSearch } from 'meilisearch';
+
+const client = new MeiliSearch({
+  host: 'http://172.235.40.99',
+  apiKey: 'd34953ae0c72685286134cc80a7578e91be834ea018ef2a4a6340f8a83f2', 
+});
+
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -9,21 +15,18 @@ const SearchBar = () => {
   useEffect(() => {
     const fetchResults = async () => {
       if (query) {
-        try {
           const searchResults = await client.index('movies').search(query, {
-            limit: 15,
+            limit: 10,
           });
           setResults(searchResults.hits);
-        } catch (error) {
-          console.error('Error fetching search results:', error);
-        }
+    
       } else {
         setResults([]);
       }
     };
 
     const debounceFetch = setTimeout(fetchResults, 300);
-    return () => clearTimeout(debounceFetch);
+    return () => (debounceFetch);
   }, [query]);
 
   return (
@@ -40,11 +43,7 @@ const SearchBar = () => {
         {results.map((movie) => (
           <div key={movie.id} className="movie-card">
             <div className="movie-image">
-              {movie.poster ? (
-                <img src={movie.poster} alt={movie.title} />
-              ) : (
-                <div className="movie-placeholder">Sin Imagen</div>
-              )}
+              <img src={movie.poster} alt={movie.title} />
             </div>
             <div className="movie-details">
               <h2 className="movie-title">{movie.title}</h2>
@@ -57,7 +56,7 @@ const SearchBar = () => {
               </p>
               <p>
                 <strong>Género:</strong>{' '}
-                {movie.genres ? movie.genres.join(', ') : 'Desconocido'}
+                {movie.genres}
               </p>
               <p className="movie-overview">{movie.overview}</p>
             </div>
